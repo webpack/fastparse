@@ -1,0 +1,23 @@
+{
+  "name": "fastparse",
+  "version": "1.0.0",
+  "description": "A very simple and stupid parser, based on a statemachine and regular expressions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:webpack/fastparse.git"
+  },
+  "keywords": [
+    "parser",
+    "regexp"
+  ],
+  "author": "Tobias Koppers @sokra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webpack/fastparse/issues"
+  },
+  "homepage": "https://github.com/webpack/fastparse"
+}
