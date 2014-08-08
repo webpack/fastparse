@@ -82,7 +82,13 @@ var parser = new Parser({
 		// matches comment start
 		"/\\*": "comment",
 		"//": "linecomment",
-		"[^/]+": true
+		
+		// this would be necessary for a complex language like JS
+		// but omitted here for simplicity
+		// "\"": "string1",
+		// "\'": "string2",
+		// "\/": "regexp"
+		
 	},
 	// The "comment" state
 	"comment": {
