@@ -93,7 +93,7 @@ var parser = new Parser({
 	// The "comment" state
 	"comment": {
 		"\\*/": "source",
-		"@licen[cs]e\\s((?:[^*\n]|\\*+[^/\n])*)": function(match, licenseText) {
+		"@licen[cs]e\\s((?:[^*\n]|\\*+[^*/\n])*)": function(match, licenseText) {
 			this.licences.push(licenseText.trim());
 		}
 	},
