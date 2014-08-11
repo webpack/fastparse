@@ -38,7 +38,7 @@ description is {
 			return "other-state-name";
 		},
 		
-		"([0-9]+)(\.[0-9]+)?": function(match, first, second, index, matchLength) {
+		"([0-9]+)(\\.[0-9]+)?": function(match, first, second, index, matchLength) {
 			// groups can be used in the regular expression
 			// they will match to arguments "first", "second"
 		},
