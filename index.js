@@ -3,9 +3,17 @@
 	Author Tobias Koppers @sokra
 */
 
+function ignoreFunction() {}
+
+function createReturningFunction(value) {
+	return function() {
+		return value;
+	};
+}
+
 function Parser(states) {
 	this.states = this.compileStates(states);
-};
+}
 
 Parser.prototype.compileStates = function(states) {
 	var result = {};
@@ -48,7 +56,7 @@ Parser.prototype.compileState = function(state) {
 	return {
 		regExp: new RegExp(total, "g"),
 		actions: actions
-	}
+	};
 };
 
 Parser.getGroupCount = function(regExpStr) {
@@ -79,11 +87,3 @@ Parser.prototype.parse = function(initialState, string, context) {
 };
 
 module.exports = Parser;
-
-function ignoreFunction() {}
-
-function createReturningFunction(value) {
-	return function() {
-		return value;
-	};
-}
