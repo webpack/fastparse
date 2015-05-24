@@ -25,6 +25,33 @@ var testdata = [
 				{ match: "v", index: 21 }
 			]
 		}
+	},
+	{
+		name: "state switing",
+		states: {
+			"number": {
+				"([0-9]+)": function(match, number) {
+					if(!this.data) this.data = {};
+					this.data[this.ident] = +number;
+					delete this.ident;
+					return "start";
+				},
+				"-\\?": true,
+				"\\?": "start"
+			},
+			"start": {
+				"([a-z]+)": function(match, name) {
+					this.ident = name;
+					return "number";
+				}
+			}
+		},
+		string: "a 1 b 2 c f 3 d ? e -? 4",
+		expected: {
+			data: {
+				a: 1, b: 2, c: 3, e: 4
+			}
+		}
 	}
 ];
 
@@ -35,5 +62,17 @@ describe("Parser", function() {
 			var actual = parser.parse("start", testcase.string, {});
 			actual.should.be.eql(testcase.expected);
 		});
+	});
+
+	it("should default context to empty object", function() {
+		var parser = new Parser({
+			"a": {
+				"a": function() {
+					this.should.be.eql({});
+				}
+			}
+		});
+		var result = parser.parse("a", "a");
+		result.should.be.eql({});
 	});
 });
