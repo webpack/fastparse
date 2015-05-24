@@ -117,4 +117,15 @@ describe("Parser", function() {
 			return parser;
 		}).should.throw();
 	});
+
+	it("should error for not existing state", function() {
+		var parser = new Parser({
+			"a": {
+				"a": "b"
+			}
+		});
+		(function() {
+			return parser.parse("a", "a");
+		}).should.throw();
+	});
 });
