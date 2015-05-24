@@ -57,12 +57,29 @@ var testdata = [
 		name: "state array",
 		states: {
 			"start": [
-				{ "a": function() { this.a = true; }},
+				{ "a": function() { this.a = true; } },
 				{
 					"b": function() { this.b = true; },
 					"c": function() { this.c = true; }
 				}
 			]
+		},
+		string: "hello abc",
+		expected: {
+			a: true, b: true, c: true
+		}
+	},
+	{
+		name: "reference other states",
+		states: {
+			"start": [
+				{ "a": function() { this.a = true; } },
+				"bc"
+			],
+			"bc": {
+				"b": function() { this.b = true; },
+				"c": function() { this.c = true; }
+			}
 		},
 		string: "hello abc",
 		expected: {
