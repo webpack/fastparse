@@ -1,6 +1,6 @@
 {
   "name": "fastparse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A very simple and stupid parser, based on a statemachine and regular expressions.",
   "main": "lib/Parser.js",
   "scripts": {
