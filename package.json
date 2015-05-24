@@ -2,7 +2,7 @@
   "name": "fastparse",
   "version": "1.0.0",
   "description": "A very simple and stupid parser, based on a statemachine and regular expressions.",
-  "main": "index.js",
+  "main": "lib/Parser.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
