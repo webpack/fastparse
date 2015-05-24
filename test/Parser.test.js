@@ -52,6 +52,22 @@ var testdata = [
 				a: 1, b: 2, c: 3, e: 4
 			}
 		}
+	},
+	{
+		name: "state array",
+		states: {
+			"start": [
+				{ "a": function() { this.a = true; }},
+				{
+					"b": function() { this.b = true; },
+					"c": function() { this.c = true; }
+				}
+			]
+		},
+		string: "hello abc",
+		expected: {
+			a: true, b: true, c: true
+		}
 	}
 ];
 
@@ -74,5 +90,14 @@ describe("Parser", function() {
 		});
 		var result = parser.parse("a", "a");
 		result.should.be.eql({});
+	});
+
+	it("should error for unexpected format", function() {
+		(function() {
+			var parser = new Parser({
+				"a": 123
+			});
+			return parser;
+		}).should.throw();
 	});
 });
